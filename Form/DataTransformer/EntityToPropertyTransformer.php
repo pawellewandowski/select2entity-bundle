@@ -70,8 +70,8 @@ class EntityToPropertyTransformer implements DataTransformerInterface
         if ($this->em->contains($entity)) {
             $value = (string) $this->accessor->getValue($entity, $this->primaryKey);
         } else {
-            $value = $this->newTagPrefix . $text;
-            $text = $text.$this->newTagText;
+            $value = $entity->getId();
+            $text = $text;
         }
 
         $data[$value] = $text;
